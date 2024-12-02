@@ -8,6 +8,13 @@ function generateDivs(numberOfDivs) {
 
             div.addEventListener("mouseover", (e) => {
                 div.classList.add("hovered");
+
+                if (toggleRgbBtn.classList.contains("toggled")) {
+                    div.style.backgroundColor = generateColor();
+                } 
+                else {
+                    div.style.backgroundColor = "gray";
+                }
             });
 
             rowDiv.appendChild(div);
@@ -21,7 +28,9 @@ function clickedClear() {
     let allHoveredDivs = document.querySelectorAll(".hovered");
 
     for (let i = 0; i < allHoveredDivs.length; i++) {
-        allHoveredDivs.item(i).classList.remove("hovered");
+        let hoveredDiv = allHoveredDivs.item(i);
+        hoveredDiv.classList.remove("hovered");
+        hoveredDiv.style.backgroundColor = "white";
     }
 }
 
@@ -40,12 +49,27 @@ function clickedNew() {
     generateDivs(n);
 }
 
+function toggledRGB() {
+    toggleRgbBtn.classList.toggle("toggled");
+}
+
+function generateColor() {
+    let codes = "0123456789ABCDEF";
+    let generatedColor = "#";
+    for (let i = 0; i < 6; i++) {
+        generatedColor += codes[Math.floor(Math.random()*16)];
+    }
+    return generatedColor;
+}
+
 let container = document.querySelector(".container");
 
 generateDivs(16);
 
 let clearBtn = document.getElementById("clear");
 let newBtn = document.getElementById("new");
+let toggleRgbBtn = document.getElementById("toggleRGB");
 
 clearBtn.addEventListener("click", clickedClear);
 newBtn.addEventListener("click", clickedNew);
+toggleRgbBtn.addEventListener("click", toggledRGB);

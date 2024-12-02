@@ -38,6 +38,7 @@ div {
     border-bottom: 1px solid;
 }
 
-.hovered {
+.toggled {
     background-color: gray;
+    color: white;
 }
