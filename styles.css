@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    /* background-color: black; */
+    font-family: Arial;
+}
+
+div {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    
+    width: 600px;
+    height: 600px;
+
+    border-top: 1px solid;
+    border-left: 1px solid;
+}
+
+.row-div {
+    background-color: white;
+    flex: 1;
+
+    display: flex;
+
+}
+
+.row-div div {
+    flex: 1;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+}
